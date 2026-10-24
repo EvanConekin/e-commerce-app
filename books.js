@@ -1,25 +1,37 @@
 function renderBooks() {
-<div class="book">
-              <figure class="book__img--wrapper">
-                <img src="assets/atomic habits.jpg" alt="" class="book__title">
-              </figure>
-              <div class="book__title">
-                Atomic Habits
-              </div>
-              <div class="book__ratings">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-              <div class="book__price">
-                <span class="book__price--normal">$59.95</span> $14.95
-              </div>
-            </div>
+const booksWrapper = document.querySelector('.books');
+
+
+booksWrapper.innerHTML = 
+
+`<div class="book">
+      <figure class="book__img--wrapper">
+        <img
+          class="book__img"
+          src="assets/atomic habits.jpg"
+          alt=""
+        />
+      </figure>
+      <div class="book__title">Atomic Habits</div>
+      <div class="book__ratings">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </div>
+      <div class="book__price">
+        <span class="book__price--normal">$59.95</span> $14.95
+      </div>
+    </div>`
 }
+setTimeout(() => {           
 renderBooks();
-// FAKE DATA
+});
+
+
+
+//FAKE DATA
 function getBooks() {
   return [
         {
@@ -111,4 +123,4 @@ function getBooks() {
           rating: 4.5,
         },
       ]
-}
+    }
