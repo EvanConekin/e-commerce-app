@@ -13,7 +13,20 @@ else if (filter === 'RATING') {
    books.sort((a, b) => b.rating - a.rating);
 }
 
- const booksHtml = books.map((book) => {
+   let ratingHTML = '';
+   let rating = 4.5
+    
+   for (let i = 0; i < Math.floor(rating); ++i) {
+  ratingHTML += '<i class="fas fa-star"></i>\n'
+   }
+   if (!Number.isInteger(rating)) {
+ ratingHTML += ' <i class="fas fa-star-half-alt"></i>\n'
+   }
+
+   console.log(ratingHTML)
+
+ const booksHtml = books
+ .map((book) => {
   return `<div class="book">
       <figure class="book__img--wrapper">
         <img
