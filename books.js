@@ -1,8 +1,11 @@
-function renderBooks() {
+function renderBooks(filter) {
   const booksWrapper = document.querySelector(".books");
 
-
 const books = getBooks();
+
+if (filter === 'LOW_TO_HIGH') {
+console.log(filter)
+}
 
  const booksHtml = books.map((book) => {
 
@@ -35,12 +38,13 @@ const books = getBooks();
  
 
 booksWrapper.innerHTML = booksHtml;
+}
+function filterBooks(event) {
+ 
+renderBooks(event.target.value);
+}
+renderBooks()
 
-}
-function filterBooks() {
-  console.log('filterBooks')
-}
-renderBooks();
 
 
 //FAKE DATA
