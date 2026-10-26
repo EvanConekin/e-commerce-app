@@ -2,10 +2,10 @@ function renderBooks(filter) {
   const booksWrapper = document.querySelector(".books");
 const books = getBooks();
 if (filter === 'LOW_TO_HIGH') {
- books.sort((a, b) => a.originalPrice - b.originalPrice);
+ books.sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice));
 }
 else if (filter === 'HIGH_TO_LOW'){
-   books.sort((a, b) => b.originalPrice - a.originalPrice);
+   books.sort((a, b) => (b.salePrice || b.originalPrice) - (a.salePrice || a.originalPrice));
 }
 else if (filter === 'RATING') {
    books.sort((a, b) => b.rating - a.rating);
@@ -41,12 +41,9 @@ function priceHTML(originalPrice, salePrice) {
     return `$${originalPrice.toFixed(2)}`
   }
   else {
-    return ` <span class="book__price--normal">$${originalPrice}</span> $${salePrice}`
+    return ` <span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}`
+  
   }
-console.log(originalPrice, salePrice)
-  return `there is a sale`
-
-
 }
 
 function ratingsHTML (rating){
@@ -63,6 +60,7 @@ function filterBooks(event) {
 renderBooks(event.target.value);
 }
 renderBooks()
+
 function getBooks() {
   return [
     {
